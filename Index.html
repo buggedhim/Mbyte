@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betaling Demonstratie</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #020617;
+            --card-bg: rgba(15, 23, 42, 0.65);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-ideal: #cc0066; /* iDEAL roze/magenta accent */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .checkout-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .order-summary {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .summary-row.total {
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+            margin-bottom: 0;
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 14px;
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 25px;
+            appearance: none; /* Verwijdert standaard browser pijl */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+        }
+
+        select:focus {
+            border-color: var(--text-muted);
+        }
+
+        .pay-btn {
+            background: #fff;
+            color: #020617;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .pay-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .demo-notice {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        <h2>Afrekenen</h2>
+        
+        <!-- Statisch overzicht van de bestelling -->
+        <div class="order-summary">
+            <div class="summary-row">
+                <span>Bestelling</span>
+                <span>Apex Sentinel Configuratielink</span>
+            </div>
+            <div class="summary-row total">
+                <span>Totaal</span>
+                <span>€ 2.499,00</span>
+            </div>
+        </div>
+
+        <!-- Statische selectiebox -->
+        <label for="bank-select">Kies uw bank (iDEAL)</label>
+        <select id="bank-select">
+            <option value="">-- Selecteer een bank --</option>
+            <option value="rabobank">Rabobank</option>
+            <option value="ing">ING</option>
+            <option value="abnamro">ABN AMRO</option>
+            <option value="asn">ASN Bank</option>
+            <option value="bunq">bunq</option>
+            <option value="regiobank">RegioBank</option>
+            <option value="sns">SNS</option>
+        </select>
+
+        <!-- Knop die niks verzendt -->
+        <button class="pay-btn" type="button" onclick="alert('Dit is een demo-interface. Er worden geen betalingen verwerkt.')">
+            Nu betalen via iDEAL
+        </button>
+
+        <div class="demo-notice">
+            🔒 Beveiligde demonstratie-omgeving
+        </div>
+    </div>
+
+</body>
+</html>
 
